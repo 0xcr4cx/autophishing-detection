@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-10-18T22:09:31",
+  "email": {
+    "from": "Microsoft Support <support@micr0soft-security.example>",
+    "subject": "Urgent: Your account will be locked",
+    "date": "Mon, 12 Oct 2026 09:14:00 +0000"
+  },
+  "indicators": {
+    "urls": [
+      "http://micr0soft-login.example/verify"
+    ],
+    "sender_domain": "micr0soft-security.example",
+    "attachments": []
+  },
+  "threat_intel": {
+    "domain": {
+      "micr0soft-security.example": {
+        "error": "HTTP 400"
+      }
+    },
+    "urls": {
+      "http://micr0soft-login.example/verify": {
+        "found": false,
+        "note": "URL not in VirusTotal yet"
+      }
+    }
+  },
+  "ai_verdict": {
+    "verdict": "suspicious",
+    "confidence": "medium",
+    "evidence": [
+      "URL appears to be a phishing link",
+      "Attachment file name is suspicious (invoice_9921.html)",
+      "Sender domain is suspicious (micr0soft-security.example)",
+      "Threat intel notes no HTTP 400 errors on domain"
+    ],
+    "recommended_action": "Ask human analyst for review and CVA check"
+  },
+  "human_approval_required": true
+}
