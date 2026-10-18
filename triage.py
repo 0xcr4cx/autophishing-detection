@@ -1,9 +1,3 @@
-"""
-Phishing triage workflow.
-Reads an .eml file, extracts indicators, checks VirusTotal,
-asks a local Ollama model for a verdict, and writes a report.
-Read-only: it never changes mailboxes, firewalls, or accounts.
-"""
 
 import os
 import re
@@ -44,8 +38,6 @@ def parse_email(path):
     }
 
 
-# ---------- Step B: Extract indicators ----------
-
 def extract_indicators(parsed):
     """Find URLs and the sender's domain."""
     urls = re.findall(r"https?://[^\s\"'<>]+", parsed["body"])
@@ -59,7 +51,6 @@ def extract_indicators(parsed):
     }
 
 
-# ---------- Step C: Threat intelligence lookup ----------
 
 def check_virustotal_url(url):
     """Ask VirusTotal about a URL. Returns a short summary."""
@@ -128,7 +119,7 @@ def enrich(indicators):
     return results
 
 
-# ---------- Step D: Ask the local model for a verdict ----------
+# local model for a verdict 
 
 SYSTEM_PROMPT = """You are a SOC analyst assistant doing phishing triage.
 You receive email metadata, extracted indicators, and threat intel results.
@@ -180,7 +171,7 @@ def ask_ollama(parsed, indicators, enrichment):
                 "recommended_action": "Review manually", "raw": text}
 
 
-# ---------- Step E: Write the report ----------
+# Write the report 
 
 def write_report(parsed, indicators, enrichment, verdict, out_path):
     report = {
@@ -200,7 +191,7 @@ def write_report(parsed, indicators, enrichment, verdict, out_path):
     return report
 
 
-# ---------- Main: run the whole workflow ----------
+# run the whole workflow 
 
 def main(eml_path):
     print(f"[1/5] Reading {eml_path}")
