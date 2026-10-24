@@ -1,4 +1,4 @@
-# 🛡️ Automated Phishing Email Detection Using Local AI
+# Vibe coded: Automated Phishing Email Detection Using Local AI
 
 A Python-based phishing detection tool that combines locally hosted AI with VirusTotal threat intelligence to analyze suspicious emails and identify potential phishing attempts.
 
@@ -21,7 +21,7 @@ The tool processes emails saved in `.eml` format, uses a locally running Ollama 
 - **JSON** — Structured output for analysis results.
 - **EML** — Email file format used as the input source.
 
-## ⚙️ How It Works
+## How It Works
 
 1. **Input:** Provide a suspicious email saved in `.eml` format.
 2. **Email Parsing:** The Python script extracts relevant email information and content for analysis.
@@ -30,4 +30,4 @@ The tool processes emails saved in `.eml` format, uses a locally running Ollama 
 5. **Result Generation:** The system combines the analysis into a structured JSON output.
 
 ## Purpose:
-Exploring the VirusToatal, Ollama and its restrictions. 
+Exploring the VirusToatal, Ollama and its restrictions.
